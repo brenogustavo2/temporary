@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deu Red! - Página Inicial</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #fbe9e7, #ffebee 80%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        header {
+            background: #b71c1c;
+            color: #fff;
+            padding: 1.2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(183,28,28,0.08);
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 2.2rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        nav {
+            background: #fff;
+            border-bottom: 1px solid #f8bbd0;
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #e53935;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2.5rem auto;
+            max-width: 1100px;
+        }
+        .profile {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(183,28,28,0.07);
+            padding: 2rem 1.5rem;
+            min-width: 260px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .profile img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid #b71c1c;
+            margin-bottom: 1rem;
+        }
+        .profile h2 {
+            margin: 0.5rem 0 0.2rem 0;
+            color: #b71c1c;
+            font-size: 1.3rem;
+        }
+        .profile p {
+            color: #888;
+            font-size: 1rem;
+        }
+        .community {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(183,28,28,0.07);
+            padding: 2rem 1.5rem;
+            min-width: 320px;
+            flex: 1;
+        }
+        .community h3 {
+            color: #b71c1c;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .community-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+        .community-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1rem;
+        }
+        .community-list img {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            border: 2px solid #b71c1c;
+        }
+        .community-list span {
+            font-size: 1.05rem;
+            color: #b71c1c;
+            font-weight: 500;
+        }
+        .scraps {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(183,28,28,0.07);
+            padding: 2rem 1.5rem;
+            min-width: 320px;
+            flex: 2;
+        }
+        .scraps h3 {
+            color: #b71c1c;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .scrap {
+            background: #ffeaea;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(183,28,28,0.04);
+        }
+        .scrap strong {
+            color: #b71c1c;
+        }
+        .scrap time {
+            color: #888;
+            font-size: 0.95em;
+            float: right;
+        }
+        @media (max-width: 1000px) {
+            main {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deu Red!</h1>
+        <button id="toggle-dark" style="position:absolute;top:18px;right:30px;padding:0.5rem 1.1rem;border-radius:6px;border:none;background:#b71c1c;color:#fff;font-weight:600;cursor:pointer;transition:background 0.2s;">Modo Escuro</button>
+    </header>
+    <nav>
+        <a href="#" id="nav-inicio">Início</a>
+        <a href="#" id="nav-comunidades">Comunidades</a>
+        <a href="#" id="nav-perfil">Perfil</a>
+        <a href="#" id="nav-sair">Sair</a>
+        <a href="#" id="nav-chats">Chats</a>
+    </nav>
+    <main id="main-content">
+        <div id="anuncios-slide" style="width:100%;max-width:700px;margin:0 auto 2rem auto;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 2px 12px rgba(183,28,28,0.10);height:180px;background:#fff;">
+            <div class="slide" style="width:100%;height:180px;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:0;transition:left 0.5s;">
+                <iframe width="100%" height="180" src="https://m.youtube.com" title="YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:10px;"></iframe>
+                <div style="margin-left:1.5rem;"></div>
+            </div>
+        
+            </div>
+            <button id="slide-prev" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:#fff;border:none;border-radius:50%;width:32px;height:32px;box-shadow:0 2px 8px #0002;cursor:pointer;font-size:1.3em;z-index:2;">&#8592;</button>
+            <button id="slide-next" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:#fff;border:none;border-radius:50%;width:32px;height:32px;box-shadow:0 2px 8px #0002;cursor:pointer;font-size:1.3em;z-index:2;">&#8594;</button>
+            <div id="slide-dots" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:2;"></div>
+        </div>
+        <aside class="profile" id="profile-section" style="position:relative;max-width:350px;">
+            <div style="height:90px;width:100%;background:#ffeaea url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover no-repeat; border-radius:12px 12px 0 0;position:relative;z-index:1;">
+                <button id="edit-cover" style="position:absolute;top:8px;right:8px;background:#fff2;border:none;border-radius:5px;padding:2px 8px;cursor:pointer;font-size:0.9em;z-index:2;">Editar capa</button>
+            </div>
+            <img id="profile-pic" src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" alt="Foto de perfil" style="margin-top:-55px;border:3px solid #b71c1c;position:relative;z-index:3;background:#fff;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+                <input id="edit-name" value="Seu Nome" style="font-size:1.3rem;font-weight:600;color:#b71c1c;text-align:center;border:none;background:transparent;width:120px;outline:none;" />
+                <span title="Verificado" style="color:#2196f3;font-size:1.3em;">✔️</span>
+            </div>
+            <div style="margin:0.5rem 0 0.7rem 0;display:flex;gap:1rem;justify-content:center;">
+                <span id="followers" style="color:#b71c1c;cursor:pointer;font-weight:600;">20 seguidores</span>
+                <span id="following" style="color:#b71c1c;cursor:pointer;font-weight:600;">0 Seguindo</span>
+            </div>
+            <textarea id="edit-bio" style="width:90%;resize:none;border-radius:6px;border:1px solid #eee;padding:0.5rem;font-size:1em;min-height:40px;">Minha bio incrível aqui!</textarea>
+            <div style="margin:1.2rem 0 0.5rem 0;text-align:left;">
+                <strong>Sugestões para seguir</strong>
+                <ul id="suggestions" style="list-style:none;padding:0;margin:0;margin-top:0.5rem;">
+                    <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                        <img src="https://th.bing.com/th/id/OIP.exyYEJaL4fs7WMQcajcx8QHaFj?r=0&rs=1&pid=ImgDetMain" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                        <span>Elon Musk</span>
+                        <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                    </li>
+                    <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                        <img src="https://www.billboard.com/wp-content/uploads/2022/06/Beyonce-cr-Courtesy-of-Parkwood-Entertainment-press-2022-billboard-1548.jpg" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                        <span>Beyoncé</span>
+                        <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                    </li>
+                    <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                        <img src="https://randomuser.me/api/portraits/men/12.jpg" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                        <span>Paulo Vieira</span>
+                        <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                    </li>
+                    <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                        <img src="https://www.perfildosfamosos.com/juliette-freire/foto-perfil-juliette-freire.jpg?v=1328e8c041af094133540b75a2964119" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                        <span>Juliette</span>
+                        <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin-top:1.5rem;">
+                <strong>Procurar amigos</strong>
+                <input id="search-friends" type="text" placeholder="Buscar por nome..." style="width:90%;margin-top:0.5rem;padding:0.4rem;border-radius:5px;border:1px solid #eee;">
+                <ul id="search-results" style="list-style:none;padding:0;margin:0;margin-top:0.5rem;"></ul>
+            </div>
+            <div id="following-list-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0008;z-index:1000;align-items:center;justify-content:center;">
+                <div style="background:#fff;padding:2rem 1.5rem;border-radius:12px;max-width:350px;width:90vw;position:relative;">
+                    <button id="close-following-list" style="position:absolute;top:8px;right:8px;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">X</button>
+                    <h3 style="margin-top:0;color:#b71c1c;">Seguindo</h3>
+                    <ul id="following-list" style="list-style:none;padding:0;margin:0;"></ul>
+                </div>
+            </div>
+        </aside>
+        <section class="community" id="publicar-section" style="flex:2;min-width:350px;">
+            <h3>Publicar</h3>
+            <form id="post-form" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;">
+                <textarea id="post-content" placeholder="No que você está pensando?" style="resize:none;border-radius:6px;border:1px solid #eee;padding:0.7rem;font-size:1em;min-height:50px;"></textarea>
+                <button type="submit" style="align-self:flex-end;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:6px 18px;cursor:pointer;font-weight:600;">Publicar</button>
+            </form>
+            <div id="feed">
+            </div>
+        </section>
+        <div id="youtube-widget" style="position:absolute;top:10px;left:10px;z-index:10;width:95%;max-width:650px;background:#fff8;border-radius:10px;padding:1rem;box-shadow:0 2px 12px #b71c1c22;">
+            <form id="youtube-search-form" style="display:flex;gap:0.5rem;align-items:center;">
+                <input id="youtube-search-input" type="text" placeholder="Buscar vídeos de futebol no YouTube..." style="flex:1;padding:0.5rem 1rem;border-radius:6px;border:1px solid #b71c1c;font-size:1em;">
+                <button type="submit" style="background:#b71c1c;color:#fff;border:none;border-radius:6px;padding:0.5rem 1.2rem;font-weight:600;cursor:pointer;">Buscar</button>
+            </form>
+            <div id="youtube-results" style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:1rem;"></div>
+            <div id="youtube-player-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000a;align-items:center;justify-content:center;z-index:9999;">
+                <div style="background:#fff;padding:1rem;border-radius:12px;max-width:90vw;max-height:90vh;position:relative;">
+                    <button id="close-youtube-player" style="position:absolute;top:8px;right:8px;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">X</button>
+                    <div id="youtube-player-container"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+        (function(){
+            const API_KEY = 'AIzaSyBCKLSznDweVnGKeqUgZPjvY41jdIvlbUk';
+            const form = document.getElementById('youtube-search-form');
+            const input = document.getElementById('youtube-search-input');
+            const results = document.getElementById('youtube-results');
+            const modal = document.getElementById('youtube-player-modal');
+            const playerContainer = document.getElementById('youtube-player-container');
+            const closeBtn = document.getElementById('close-youtube-player');
+            if(form && input && results) {
+                form.onsubmit = function(e) {
+                    e.preventDefault();
+                    const q = input.value.trim();
+                    if(!q) return;
+                    results.innerHTML = '<span style="color:#b71c1c;">Buscando...</span>';
+                    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=6&q=${encodeURIComponent(q)}&key=${API_KEY}`)
+                        .then(r=>r.json())
+                        .then(data=>{
+                            if(data.items && data.items.length>0) {
+                                results.innerHTML = '';
+                                data.items.forEach(item=>{
+                                    const vid = item.id.videoId;
+                                    const thumb = item.snippet.thumbnails.medium.url;
+                                    const title = item.snippet.title;
+                                    const channel = item.snippet.channelTitle;
+                                    const div = document.createElement('div');
+                                    div.style.width = '180px';
+                                    div.style.cursor = 'pointer';
+                                    div.style.background = '#fff';
+                                    div.style.borderRadius = '8px';
+                                    div.style.boxShadow = '0 1px 6px #b71c1c11';
+                                    div.style.overflow = 'hidden';
+                                    div.innerHTML = `<img src="${thumb}" alt="${title}" style="width:100%;border-radius:8px 8px 0 0;"><div style='padding:0.5rem;'><strong style='font-size:1em;color:#b71c1c;'>${title}</strong><br><span style='font-size:0.95em;color:#888;'>${channel}</span></div>`;
+                                    div.onclick = function() {
+                                        playerContainer.innerHTML = `<iframe width='480' height='270' src='https://www.youtube.com/embed/${vid}?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen style='border-radius:10px;max-width:80vw;max-height:70vh;'></iframe>`;
+                                        modal.style.display = 'flex';
+                                    };
+                                    results.appendChild(div);
+                                });
+                            } else {
+                                results.innerHTML = '<span style="color:#b71c1c;">Nenhum vídeo encontrado.</span>';
+                            }
+                        })
+                        .catch(()=>{
+                            results.innerHTML = '<span style="color:#b71c1c;">Erro ao buscar vídeos.</span>';
+                        });
+                };
+            }
+            if(closeBtn && modal) closeBtn.onclick = ()=>{ modal.style.display = 'none'; playerContainer.innerHTML = ''; };
+        })();
+        </script>
+        <!-- ...existing code... -->
+    </main>
+    <script>
+    // Função para trocar o conteúdo principal
+    function showSection(section) {
+        const main = document.getElementById('main-content');
+        if (section === 'inicio' || section === 'perfil') {
+            main.innerHTML = `
+                <div id="anuncios-slide" style="width:100%;max-width:700px;margin:0 auto 2rem auto;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 2px 12px rgba(183,28,28,0.10);height:180px;background:#fff;">
+                    <div class="slide" style="width:100%;height:180px;display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:0;transition:left 0.5s;">
+                        <iframe width="100%" height="180" src="https://m.youtube.com" title="YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:10px;"></iframe>
+                        <div style="margin-left:1.5rem;"></div>
+                    </div>
+                    <button id="slide-prev" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:#fff;border:none;border-radius:50%;width:32px;height:32px;box-shadow:0 2px 8px #0002;cursor:pointer;font-size:1.3em;z-index:2;">&#8592;</button>
+                    <button id="slide-next" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:#fff;border:none;border-radius:50%;width:32px;height:32px;box-shadow:0 2px 8px #0002;cursor:pointer;font-size:1.3em;z-index:2;">&#8594;</button>
+                    <div id="slide-dots" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:2;"></div>
+                </div>
+                <aside class="profile" id="profile-section" style="position:relative;max-width:350px;">
+                    <div style="height:90px;width:100%;background:#ffeaea url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover no-repeat; border-radius:12px 12px 0 0;position:relative;z-index:1;">
+                        <button id="edit-cover" style="position:absolute;top:8px;right:8px;background:#fff2;border:none;border-radius:5px;padding:2px 8px;cursor:pointer;font-size:0.9em;z-index:2;">Editar capa</button>
+                    </div>
+                    <img id="profile-pic" src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" alt="Foto de perfil" style="margin-top:-55px;border:3px solid #b71c1c;position:relative;z-index:3;background:#fff;">
+                    <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+                        <input id="edit-name" value="Seu Nome" style="font-size:1.3rem;font-weight:600;color:#b71c1c;text-align:center;border:none;background:transparent;width:120px;outline:none;" />
+                        <span title="Verificado" style="color:#2196f3;font-size:1.3em;">✔️</span>
+                    </div>
+                    <div style="margin:0.5rem 0 0.7rem 0;display:flex;gap:1rem;justify-content:center;">
+                        <span id="followers" style="color:#b71c1c;cursor:pointer;font-weight:600;">20 seguidores</span>
+                        <span id="following" style="color:#b71c1c;cursor:pointer;font-weight:600;">Seguindo</span>
+                    </div>
+                    <textarea id="edit-bio" style="width:90%;resize:none;border-radius:6px;border:1px solid #eee;padding:0.5rem;font-size:1em;min-height:40px;">Minha bio incrível aqui!</textarea>
+                    <div style="margin:1.2rem 0 0.5rem 0;text-align:left;">
+                        <strong>Sugestões para seguir</strong>
+                        <ul id="suggestions" style="list-style:none;padding:0;margin:0;margin-top:0.5rem;">
+                            <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                                <img src="https://th.bing.com/th/id/OIP.exyYEJaL4fs7WMQcajcx8QHaFj?r=0&rs=1&pid=ImgDetMain" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <span>Elon Musk</span>
+                                <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                            </li>
+                            <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                                <img src="https://www.billboard.com/wp-content/uploads/2022/06/Beyonce-cr-Courtesy-of-Parkwood-Entertainment-press-2022-billboard-1548.jpg" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <span>Beyoncé</span>
+                                <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                            </li>
+                            <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                                <img src="https://randomuser.me/api/portraits/men/12.jpg" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <span>Paulo Vieira</span>
+                                <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                            </li>
+                            <li style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+                                <img src="https://www.perfildosfamosos.com/juliette-freire/foto-perfil-juliette-freire.jpg?v=1328e8c041af094133540b75a2964119" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <span>Juliette</span>
+                                <button class="follow-btn" style="margin-left:auto;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 12px;cursor:pointer;">Seguir</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top:1.5rem;">
+                        <strong>Procurar amigos</strong>
+                        <input id="search-friends" type="text" placeholder="Buscar por nome..." style="width:90%;margin-top:0.5rem;padding:0.4rem;border-radius:5px;border:1px solid #eee;">
+                        <ul id="search-results" style="list-style:none;padding:0;margin:0;margin-top:0.5rem;"></ul>
+                    </div>
+                    <div id="following-list-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0008;z-index:1000;align-items:center;justify-content:center;">
+                        <div style="background:#fff;padding:2rem 1.5rem;border-radius:12px;max-width:350px;width:90vw;position:relative;">
+                            <button id="close-following-list" style="position:absolute;top:8px;right:8px;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">X</button>
+                            <h3 style="margin-top:0;color:#b71c1c;">Seguindo</h3>
+                            <ul id="following-list" style="list-style:none;padding:0;margin:0;"></ul>
+                        </div>
+                    </div>
+                </aside>
+                <section class="community" id="publicar-section" style="flex:2;min-width:350px;">
+                    <h3>Publicar</h3>
+                    <form id="post-form" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;">
+                        <textarea id="post-content" placeholder="No que você está pensando?" style="resize:none;border-radius:6px;border:1px solid #eee;padding:0.7rem;font-size:1em;min-height:50px;"></textarea>
+                        <button type="submit" style="align-self:flex-end;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:6px 18px;cursor:pointer;font-weight:600;">Publicar</button>
+                    </form>
+                    <div id="feed">
+                    </div>
+                </section>
+                <div id="youtube-widget" style="position:absolute;top:10px;left:10px;z-index:10;width:95%;max-width:650px;background:#fff8;border-radius:10px;padding:1rem;box-shadow:0 2px 12px #b71c1c22;">
+                    <form id="youtube-search-form" style="display:flex;gap:0.5rem;align-items:center;">
+                        <input id="youtube-search-input" type="text" placeholder="Buscar vídeos de futebol no YouTube..." style="flex:1;padding:0.5rem 1rem;border-radius:6px;border:1px solid #b71c1c;font-size:1em;">
+                        <button type="submit" style="background:#b71c1c;color:#fff;border:none;border-radius:6px;padding:0.5rem 1.2rem;font-weight:600;cursor:pointer;">Buscar</button>
+                    </form>
+                    <div id="youtube-results" style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:1rem;"></div>
+                    <div id="youtube-player-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000a;align-items:center;justify-content:center;z-index:9999;">
+                        <div style="background:#fff;padding:1rem;border-radius:12px;max-width:90vw;max-height:90vh;position:relative;">
+                            <button id="close-youtube-player" style="position:absolute;top:8px;right:8px;background:#b71c1c;color:#fff;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">X</button>
+                            <div id="youtube-player-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                (function(){
+                    const API_KEY = 'AIzaSyBCKLSznDweVnGKeqUgZPjvY41jdIvlbUk';
+                    const form = document.getElementById('youtube-search-form');
+                    const input = document.getElementById('youtube-search-input');
+                    const results = document.getElementById('youtube-results');
+                    const modal = document.getElementById('youtube-player-modal');
+                    const playerContainer = document.getElementById('youtube-player-container');
+                    const closeBtn = document.getElementById('close-youtube-player');
+                    if(form && input && results) {
+                        form.onsubmit = function(e) {
+                            e.preventDefault();
+                            const q = input.value.trim();
+                            if(!q) return;
+                            results.innerHTML = '<span style="color:#b71c1c;">Buscando...</span>';
+                            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=6&q=${encodeURIComponent(q)}&key=${API_KEY}`)
+                                .then(r=>r.json())
+                                .then(data=>{
+                                    if(data.items && data.items.length>0) {
+                                        results.innerHTML = '';
+                                        data.items.forEach(item=>{
+                                            const vid = item.id.videoId;
+                                            const thumb = item.snippet.thumbnails.medium.url;
+                                            const title = item.snippet.title;
+                                            const channel = item.snippet.channelTitle;
+                                            const div = document.createElement('div');
+                                            div.style.width = '180px';
+                                            div.style.cursor = 'pointer';
+                                            div.style.background = '#fff';
+                                            div.style.borderRadius = '8px';
+                                            div.style.boxShadow = '0 1px 6px #b71c1c11';
+                                            div.style.overflow = 'hidden';
+                                            div.innerHTML = `<img src="${thumb}" alt="${title}" style="width:100%;border-radius:8px 8px 0 0;"><div style='padding:0.5rem;'><strong style='font-size:1em;color:#b71c1c;'>${title}</strong><br><span style='font-size:0.95em;color:#888;'>${channel}</span></div>`;
+                                            div.onclick = function() {
+                                                playerContainer.innerHTML = `<iframe width='480' height='270' src='https://www.youtube.com/embed/${vid}?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen style='border-radius:10px;max-width:80vw;max-height:70vh;'></iframe>`;
+                                                modal.style.display = 'flex';
+                                            };
+                                            results.appendChild(div);
+                                        });
+                                    } else {
+                                        results.innerHTML = '<span style="color:#b71c1c;">Nenhum vídeo encontrado.</span>';
+                                    }
+                                })
+                                .catch(()=>{
+                                    results.innerHTML = '<span style="color:#b71c1c;">Erro ao buscar vídeos.</span>';
+                                });
+                        };
+                    }
+                    if(closeBtn && modal) closeBtn.onclick = ()=>{ modal.style.display = 'none'; playerContainer.innerHTML = ''; };
+                })();
+                </script>
+                <!-- ...existing code... -->
+            `;
+            // Reatribuir scripts de interatividade
+            setTimeout(() => {
+                // Modo escuro
+                if (darkMode) {
+                    document.querySelectorAll('.profile, .community, .scraps').forEach(e => e && (e.style.background = '#2d2d2d', e.style.color = '#fff'));
+                    document.querySelectorAll('.community-list span, .scrap strong, .community h3, .scraps h3').forEach(e => {
+                        if(e) {
+                            e.style.color = '#111';
+                            e.style.fontWeight = 'bold';
+                        }
+                    });
+                }
+                // Seguidores
+                const followersBtn = document.getElementById('followers');
+                if (followersBtn) followersBtn.onclick = function() {
+                    alert('Seguido por: Ana, João, Maria, Lucas, Beatriz, Rafael, Gabriela, Pedro, Julia, Felipe, Marina, Otávio, Larissa, Paulo, Juliette, Elon Musk, Beyoncé, Paulo Vieira, Neymar, Anitta');
+                };
+                // Editar capa
+                const editCoverBtn = document.getElementById('edit-cover');
+                if (editCoverBtn) editCoverBtn.onclick = function() {
+                    const url = prompt('Cole a URL da nova imagem de capa:');
+                    if(url) editCoverBtn.parentElement.style.background = `#ffeaea url('${url}') center/cover no-repeat`;
+                };
+                // Publicar posts
+                const postForm = document.getElementById('post-form');
+                const postContent = document.getElementById('post-content');
+                const feed = document.getElementById('feed');
+                if (postForm && postContent && feed) {
+                    postForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        if(postContent.value.trim().length === 0) return;
+                        const post = document.createElement('div');
+                        post.className = 'scrap';
+                        post.innerHTML = `
+                            <div style='display:flex;align-items:center;gap:0.5rem;'>
+                                <img src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <strong>Seu Nome</strong>
+                                <span style="color:#2196f3;font-size:1.1em;">✔️</span>
+                                <span style="margin-left:auto;cursor:pointer;color:#b71c1c;font-size:1.2em;" class="delete-post">🗑️</span>
+                            </div>
+                            <div style='margin:0.7rem 0;'>${postContent.value.replace(/</g,'&lt;')}</div>
+                            <div style='display:flex;gap:1.2rem;font-size:1.1em;'>
+                                <span class="like-btn" style="cursor:pointer;">❤️ Curtir</span>
+                                <span class="comment-btn" style="cursor:pointer;">💬 Comentar</span>
+                                <span class="share-btn" style="cursor:pointer;">🔄 Compartilhar</span>
+                            </div>
+                            <div class="comments" style="margin-top:0.5rem;"></div>
+                        `;
+                        feed.prepend(post);
+                        postContent.value = '';
+                    };
+                    // Curtir, comentar, compartilhar, apagar
+                    feed.onclick = function(e) {
+                        if(e.target.classList.contains('like-btn')) {
+                            e.target.textContent = e.target.textContent.includes('Curtido') ? '❤️ Curtir' : '❤️ Curtido';
+                        } else if(e.target.classList.contains('delete-post')) {
+                            if(confirm('Apagar esta publicação?')) e.target.closest('.scrap').remove();
+                        } else if(e.target.classList.contains('comment-btn')) {
+                            const commentsDiv = e.target.closest('.scrap').querySelector('.comments');
+                            const comment = prompt('Digite seu comentário:');
+                            if(comment) {
+                                const div = document.createElement('div');
+                                div.innerHTML = `<strong>Você:</strong> ${comment.replace(/</g,'&lt;')}`;
+                                commentsDiv.appendChild(div);
+                            }
+                        } else if(e.target.classList.contains('share-btn')) {
+                            alert('Publicação compartilhada!');
+                        }
+                    };
+                }
+                // Editar nome e bio
+                const editName = document.getElementById('edit-name');
+                if (editName) editName.onchange = function() {
+                    document.querySelectorAll('strong').forEach(s => { if(s.textContent === 'Seu Nome') s.textContent = editName.value; });
+                };
+                const editBio = document.getElementById('edit-bio');
+                if (editBio) editBio.onchange = function() { };
+                // Seguir sugestões
+                Array.from(document.getElementsByClassName('follow-btn')).forEach(btn => {
+                    btn.onclick = function() {
+                        btn.textContent = 'Seguindo';
+                        btn.style.background = '#888';
+                    };
+                });
+                // Lista de pessoas fictícias para feed e busca
+                const npcs = [
+                    {nome:'Elon Musk', img:'https://th.bing.com/th/id/OIP.exyYEJaL4fs7WMQcajcx8QHaFj?r=0&rs=1&pid=ImgDetMain'},
+                    {nome:'Beyoncé', img:'https://randomuser.me/api/portraits/women/44.jpg'},
+                    {nome:'Paulo Vieira', img:'https://randomuser.me/api/portraits/men/12.jpg'},
+                    {nome:'Juliette', img:'https://www.perfildosfamosos.com/juliette-freire/foto-perfil-juliette-freire.jpg?v=1328e8c041af094133540b75a2964119'},
+                    {nome:'Neymar', img:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRUREvlCvHREdbT-Xsf2L2dmgO7AulT-6hqeDRUThJvVKKQwYuPwNatanNGyJiXSwubdlC8iTQHCPxOrsM-uuUCfg'},
+                    {nome:'Anitta', img:'https://randomuser.me/api/portraits/women/50.jpg'},
+                    {nome:'Lucas', img:'https://randomuser.me/api/portraits/men/20.jpg'},
+                    {nome:'Beatriz', img:'https://randomuser.me/api/portraits/women/30.jpg'},
+                    {nome:'Rafael', img:'https://randomuser.me/api/portraits/men/40.jpg'},
+                    {nome:'Gabriela', img:'https://randomuser.me/api/portraits/women/60.jpg'}
+                ];
+                let following = JSON.parse(localStorage.getItem('following')||'[]');
+                // Feed de posts fictícios
+                const feedInicio = document.getElementById('feed');
+                if(feedInicio && section==='inicio') {
+                    feedInicio.innerHTML = '';
+                    // Adiciona 4 posts de NPCs
+                    for(let i=0;i<4;i++) {
+                        const npc = npcs[Math.floor(Math.random()*npcs.length)];
+                        const post = document.createElement('div');
+                        post.className = 'scrap';
+                        post.innerHTML = `
+                            <div style='display:flex;align-items:center;gap:0.5rem;'>
+                                <img src="${npc.img}" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                                <strong>${npc.nome}</strong>
+                                <span style="color:#2196f3;font-size:1.1em;">✔️</span>
+                            </div>
+                            <div style='margin:0.7rem 0;'>${['Bom dia!','Olha só essa novidade!','Alguém para conversar?','Amei o Deu Red!','Postando só para testar!'][Math.floor(Math.random()*5)]}</div>
+                            <div style='display:flex;gap:1.2rem;font-size:1.1em;'>
+                                <span class="like-btn" style="cursor:pointer;">❤️ Curtir</span>
+                                <span class="comment-btn" style="cursor:pointer;">💬 Comentar</span>
+                                <span class="share-btn" style="cursor:pointer;">🔄 Compartilhar</span>
+                            </div>
+                            <div class="comments" style="margin-top:0.5rem;"></div>
+                        `;
+                        feedInicio.appendChild(post);
+                    }
+                }
+                // Procurar amigos
+                const searchInput = document.getElementById('search-friends');
+                const searchResults = document.getElementById('search-results');
+                if(searchInput && searchResults) {
+                    searchInput.oninput = function() {
+                        const q = searchInput.value.trim().toLowerCase();
+                        searchResults.innerHTML = '';
+                        if(q.length>0) {
+                            npcs.filter(n=>n.nome.toLowerCase().includes(q)).forEach(npc=>{
+                                const li = document.createElement('li');
+                                li.style.display = 'flex';
+                                li.style.alignItems = 'center';
+                                li.style.gap = '0.5rem';
+                                li.style.marginBottom = '0.5rem';
+                                li.innerHTML = `<img src="${npc.img}" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;"><span>${npc.nome}</span>`;
+                                const btn = document.createElement('button');
+                                btn.textContent = following.includes(npc.nome)?'Seguindo':'Seguir';
+                                btn.className = 'follow-btn';
+                                btn.style.marginLeft = 'auto';
+                                btn.style.background = following.includes(npc.nome)?'#888':'#b71c1c';
+                                btn.style.color = '#fff';
+                                btn.style.border = 'none';
+                                btn.style.borderRadius = '5px';
+                                btn.style.padding = '2px 12px';
+                                btn.style.cursor = 'pointer';
+                                btn.onclick = function() {
+                                    if(following.includes(npc.nome)) {
+                                        following = following.filter(f=>f!==npc.nome);
+                                        btn.textContent = 'Seguir';
+                                        btn.style.background = '#b71c1c';
+                                    } else {
+                                        following.push(npc.nome);
+                                        btn.textContent = 'Seguindo';
+                                        btn.style.background = '#888';
+                                    }
+                                    localStorage.setItem('following',JSON.stringify(following));
+                                    renderFollowingList();
+                                };
+                                li.appendChild(btn);
+                                searchResults.appendChild(li);
+                            });
+                        }
+                    };
+                }
+                // Modal de seguindo
+                function renderFollowingList() {
+                    const list = document.getElementById('following-list');
+                    if(list) {
+                        list.innerHTML = '';
+                        following.forEach(name=>{
+                            const npc = npcs.find(n=>n.nome===name);
+                            const li = document.createElement('li');
+                            li.style.display = 'flex';
+                            li.style.alignItems = 'center';
+                            li.style.gap = '0.5rem';
+                            li.style.marginBottom = '0.5rem';
+                            li.innerHTML = `<img src="${npc?npc.img:'https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png'}" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;"><span>${name}</span>`;
+                            const btn = document.createElement('button');
+                            btn.textContent = 'Deixar de seguir';
+                            btn.className = 'unfollow-btn';
+                            btn.style.marginLeft = 'auto';
+                            btn.style.background = '#b71c1c';
+                            btn.style.color = '#fff';
+                            btn.style.border = 'none';
+                            btn.style.borderRadius = '5px';
+                            btn.style.padding = '2px 12px';
+                            btn.style.cursor = 'pointer';
+                            btn.onclick = function() {
+                                following = following.filter(f=>f!==name);
+                                localStorage.setItem('following',JSON.stringify(following));
+                                renderFollowingList();
+                            };
+                            li.appendChild(btn);
+                            list.appendChild(li);
+                        });
+                    }
+                }
+                const followingBtn = document.getElementById('following');
+                const followingModal = document.getElementById('following-list-modal');
+                if(followingBtn && followingModal) {
+                    followingBtn.onclick = function() {
+                        renderFollowingList();
+                        followingModal.style.display = 'flex';
+                    };
+                    document.getElementById('close-following-list').onclick = function() {
+                        followingModal.style.display = 'none';
+                    };
+                }
+            }, 10);
+        } else if (section === 'comunidades') {
+            main.innerHTML = `
+                <section class="community" style="flex:2;min-width:350px;">
+                    <h3>Comunidades e Conversas</h3>
+                    <ul class="community-list">
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" alt="Comunidade 1"><span>Fãs de html</span></li>
+                        <li><img src="https://cdn6.aptoide.com/imgs/5/5/d/55d0f60b2daae3bf2866bdc71105f757_icon.png" alt="Comunidade 2"><span>Deu Red! Brasil</span></li>
+                        <li><img src="https://pbs.twimg.com/profile_images/1836335919441260545/8lxkxEh3_400x400.jpg" alt="Comunidade 3"><span>F/T</span></li>
+                    </ul>
+                    <div style='margin-top:2rem;'>
+                        <h4>Chat da Comunidade</h4>
+                        <div style='background:#ffeaea;border-radius:8px;padding:1rem;max-width:400px;'>
+                            <div><strong>Lucas:</strong> Alguém já viu o novo recurso do Deu Red!?</div>
+                            <div><strong>Beatriz:</strong> Eu vi! Agora dá pra mandar figurinhas animadas 😂</div>
+                            <div><strong>Rafael:</strong> Só falta liberar o modo escuro, né?</div>
+                            <div><strong>Gabriela:</strong> Gente, alguém vai no encontro da comunidade sábado?</div>
+                            <div><strong>Pedro:</strong> Eu vou! Bora marcar um churrasco 🍖</div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        } else if (section === 'chats') {
+            main.innerHTML = `
+                <section class="community" style="flex:2;min-width:350px;">
+                    <h3>Chats</h3>
+                    <div style='background:#ffeaea;border-radius:8px;padding:1rem;max-width:400px;'>
+                        <div><strong>Julia:</strong> Oi, alguém online?</div>
+                        <div><strong>Felipe:</strong> Estou aqui! Bora conversar?</div>
+                        <div><strong>Marina:</strong> Alguém viu o novo meme do RedBook?</div>
+                        <div><strong>Otávio:</strong> Kkkkk sim, muito bom!</div>
+                        <div><strong>Larissa:</strong> Vocês já testaram o chat novo?</div>
+                        <div><strong>Felipe:</strong> Achei top demais!</div>
+                    </div>
+                </section>
+            `;
+        } else if (section === 'sair') {
+            window.location.href = 'index.html';
+        }
+    }
+
+    // Eventos dos botões
+    document.getElementById('nav-inicio').onclick = () => showSection('inicio');
+    document.getElementById('nav-comunidades').onclick = () => showSection('comunidades');
+    document.getElementById('nav-perfil').onclick = () => showSection('perfil');
+    document.getElementById('nav-chats').onclick = () => showSection('chats');
+    document.getElementById('nav-sair').onclick = () => showSection('sair');
+    // Modo escuro
+    const darkBtn = document.getElementById('toggle-dark');
+    let darkMode = false;
+    darkBtn.onclick = function() {
+        darkMode = !darkMode;
+        if (darkMode) {
+            document.body.style.background = 'linear-gradient(120deg, #232526, #414345 80%)';
+            document.body.classList.add('dark');
+            document.querySelector('header').style.background = '#232526';
+            document.querySelector('header').style.color = '#fff';
+            document.querySelector('nav').style.background = '#232526';
+            document.querySelector('nav').style.borderBottom = '1px solid #444';
+            document.querySelectorAll('.profile, .community, .scraps').forEach(e => e && (e.style.background = '#2d2d2d', e.style.color = '#fff'));
+            document.querySelectorAll('.community-list span, .scrap strong, .community h3, .scraps h3').forEach(e => {
+                if(e) {
+                    e.style.color = '#111';
+                    e.style.fontWeight = 'bold';
+                }
+            });
+            darkBtn.textContent = 'Modo Claro';
+        } else {
+            document.body.style.background = '';
+            document.body.classList.remove('dark');
+            document.querySelector('header').style.background = '';
+            document.querySelector('header').style.color = '';
+            document.querySelector('nav').style.background = '';
+            document.querySelector('nav').style.borderBottom = '';
+            document.querySelectorAll('.profile, .community, .scraps').forEach(e => e && (e.style.background = '', e.style.color = ''));
+            document.querySelectorAll('.community-list span, .scrap strong, .community h3, .scraps h3').forEach(e => e && (e.style.color = ''));
+            darkBtn.textContent = 'Modo Escuro';
+        }
+    };
+    // Função para mostrar seguidores
+    const followersBtn = document.getElementById('followers');
+    followersBtn.onclick = function() {
+        alert('Seguido por: Ana, João, Maria, Lucas, Beatriz, Rafael, Gabriela, Pedro, Julia, Felipe, Marina, Otávio, Larissa, Paulo, Juliette, Elon Musk, Beyoncé, Paulo Vieira, Neymar, Anitta');
+    };
+    // Editar capa
+    const editCoverBtn = document.getElementById('edit-cover');
+    editCoverBtn.onclick = function() {
+        const url = prompt('Cole a URL da nova imagem de capa:');
+        if(url) editCoverBtn.parentElement.style.background = `#ffeaea url('${url}') center/cover no-repeat`;
+    };
+    // Publicar posts
+    const postForm = document.getElementById('post-form');
+    const postContent = document.getElementById('post-content');
+    const feed = document.getElementById('feed');
+    postForm.onsubmit = function(e) {
+        e.preventDefault();
+        if(postContent.value.trim().length === 0) return;
+        const post = document.createElement('div');
+        post.className = 'scrap';
+        post.innerHTML = `
+            <div style='display:flex;align-items:center;gap:0.5rem;'>
+                <img src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                <strong>Seu Nome</strong>
+                <span style="color:#2196f3;font-size:1.1em;">✔️</span>
+                <span style="margin-left:auto;cursor:pointer;color:#b71c1c;font-size:1.2em;" class="delete-post">🗑️</span>
+            </div>
+            <div style='margin:0.7rem 0;'>${postContent.value.replace(/</g,'&lt;')}</div>
+            <div style='display:flex;gap:1.2rem;font-size:1.1em;'>
+                <span class="like-btn" style="cursor:pointer;">❤️ Curtir</span>
+                <span class="comment-btn" style="cursor:pointer;">💬 Comentar</span>
+                <span class="share-btn" style="cursor:pointer;">🔄 Compartilhar</span>
+            </div>
+            <div class="comments" style="margin-top:0.5rem;"></div>
+        `;
+        feed.prepend(post);
+        postContent.value = '';
+    };
+    // Curtir, comentar, compartilhar, apagar
+    feed.onclick = function(e) {
+        if(e.target.classList.contains('like-btn')) {
+            e.target.textContent = e.target.textContent.includes('Curtido') ? '❤️ Curtir' : '❤️ Curtido';
+        } else if(e.target.classList.contains('delete-post')) {
+            if(confirm('Apagar esta publicação?')) e.target.closest('.scrap').remove();
+        } else if(e.target.classList.contains('comment-btn')) {
+            const commentsDiv = e.target.closest('.scrap').querySelector('.comments');
+            const comment = prompt('Digite seu comentário:');
+            if(comment) {
+                const div = document.createElement('div');
+                div.innerHTML = `<strong>Você:</strong> ${comment.replace(/</g,'&lt;')}`;
+                commentsDiv.appendChild(div);
+            }
+        } else if(e.target.classList.contains('share-btn')) {
+            alert('Publicação compartilhada!');
+        }
+    };
+    // Editar nome e bio
+    const editName = document.getElementById('edit-name');
+    editName.onchange = function() {
+        document.querySelectorAll('strong').forEach(s => { if(s.textContent === 'Seu Nome') s.textContent = editName.value; });
+    };
+    const editBio = document.getElementById('edit-bio');
+    editBio.onchange = function() {
+        // bio já editável
+    };
+    // Seguir sugestões
+    Array.from(document.getElementsByClassName('follow-btn')).forEach(btn => {
+        btn.onclick = function() {
+            btn.textContent = 'Seguindo';
+            btn.style.background = '#888';
+        };
+    });
+
+    // Função para reatribuir eventos do perfil após trocar o conteúdo
+    function attachProfileEvents() {
+        // Modo escuro (reatualiza as cores se já estiver ativado)
+        if (darkMode) {
+            document.querySelectorAll('.profile, .community, .scraps').forEach(e => e && (e.style.background = '#2d2d2d', e.style.color = '#fff'));
+            document.querySelectorAll('.community-list span, .scrap strong, .community h3, .scraps h3').forEach(e => {
+                if(e) {
+                    e.style.color = '#111';
+                    e.style.fontWeight = 'bold';
+                }
+            });
+        }
+        // Seguidores
+        const followersBtn = document.getElementById('followers');
+        if (followersBtn) {
+            followersBtn.onclick = function() {
+                alert('Seguido por: Ana, João, Maria, Lucas, Beatriz, Rafael, Gabriela, Pedro, Julia, Felipe, Marina, Otávio, Larissa, Paulo, Juliette, Elon Musk, Beyoncé, Paulo Vieira, Neymar, Anitta');
+            };
+        }
+        // Editar capa
+        const editCoverBtn = document.getElementById('edit-cover');
+        if (editCoverBtn) {
+            editCoverBtn.onclick = function() {
+                const url = prompt('Cole a URL da nova imagem de capa:');
+                if(url) editCoverBtn.parentElement.style.background = `#ffeaea url('${url}') center/cover no-repeat`;
+            };
+        }
+        // Publicar posts
+        const postForm = document.getElementById('post-form');
+        const postContent = document.getElementById('post-content');
+        const feed = document.getElementById('feed');
+        if (postForm && postContent && feed) {
+            postForm.onsubmit = function(e) {
+                e.preventDefault();
+                if(postContent.value.trim().length === 0) return;
+                const post = document.createElement('div');
+                post.className = 'scrap';
+                post.innerHTML = `
+                    <div style='display:flex;align-items:center;gap:0.5rem;'>
+                        <img src="https://kevinreillycollection.com/wp-content/uploads/2015/08/profile-icon.png" style="width:32px;height:32px;border-radius:50%;border:2px solid #b71c1c;">
+                        <strong>Seu Nome</strong>
+                        <span style="color:#2196f3;font-size:1.1em;">✔️</span>
+                        <span style="margin-left:auto;cursor:pointer;color:#b71c1c;font-size:1.2em;" class="delete-post">🗑️</span>
+                    </div>
+                    <div style='margin:0.7rem 0;'>${postContent.value.replace(/</g,'&lt;')}</div>
+                    <div style='display:flex;gap:1.2rem;font-size:1.1em;'>
+                        <span class="like-btn" style="cursor:pointer;">❤️ Curtir</span>
+                        <span class="comment-btn" style="cursor:pointer;">💬 Comentar</span>
+                        <span class="share-btn" style="cursor:pointer;">🔄 Compartilhar</span>
+                    </div>
+                    <div class="comments" style="margin-top:0.5rem;"></div>
+                `;
+                feed.prepend(post);
+                postContent.value = '';
+            };
+            // Curtir, comentar, compartilhar, apagar
+            feed.onclick = function(e) {
+                if(e.target.classList.contains('like-btn')) {
+                    e.target.textContent = e.target.textContent.includes('Curtido') ? '❤️ Curtir' : '❤️ Curtido';
+                } else if(e.target.classList.contains('delete-post')) {
+                    if(confirm('Apagar esta publicação?')) e.target.closest('.scrap').remove();
+                } else if(e.target.classList.contains('comment-btn')) {
+                    const commentsDiv = e.target.closest('.scrap').querySelector('.comments');
+                    const comment = prompt('Digite seu comentário:');
+                    if(comment) {
+                        const div = document.createElement('div');
+                        div.innerHTML = `<strong>Você:</strong> ${comment.replace(/</g,'&lt;')}`;
+                        commentsDiv.appendChild(div);
+                    }
+                } else if(e.target.classList.contains('share-btn')) {
+                    alert('Publicação compartilhada!');
+                }
+            };
+        }
+        // Editar nome
+        const editName = document.getElementById('edit-name');
+        if (editName) {
+            editName.onchange = function() {
+                document.querySelectorAll('strong').forEach(s => { if(s.textContent === 'Seu Nome') s.textContent = editName.value; });
+            };
+        }
+        // Editar bio (já editável)
+        // Seguir sugestões
+        Array.from(document.getElementsByClassName('follow-btn')).forEach(btn => {
+            btn.onclick = function() {
+                btn.textContent = 'Seguindo';
+                btn.style.background = '#888';
+            };
+        });
+    }
+
+    // Slide de anúncios
+    function initSlideShow() {
+        const slides = document.querySelectorAll('#anuncios-slide .slide');
+        const prev = document.getElementById('slide-prev');
+        const next = document.getElementById('slide-next');
+        const dots = document.getElementById('slide-dots');
+        let idx = 0;
+        let timer;
+        function showSlide(i) {
+            slides.forEach((slide, j) => {
+                slide.style.left = ((j-i)*100)+"%";
+            });
+            if(dots) {
+                dots.innerHTML = '';
+                slides.forEach((_,j)=>{
+                    const dot = document.createElement('span');
+                    dot.style.width = '10px';
+                    dot.style.height = '10px';
+                    dot.style.borderRadius = '50%';
+                    dot.style.background = j===i?'#b71c1c':'#eee';
+                    dot.style.display = 'inline-block';
+                    dot.style.cursor = 'pointer';
+                    dot.onclick = ()=>{ idx=j; showSlide(idx); resetTimer(); };
+                    dots.appendChild(dot);
+                });
+            }
+        }
+        function resetTimer() {
+            if(timer) clearInterval(timer);
+            timer = setInterval(()=>{ idx=(idx+1)%slides.length; showSlide(idx); }, 5000);
+        }
+        if(prev && next) {
+            prev.onclick = ()=>{ idx=(idx-1+slides.length)%slides.length; showSlide(idx); resetTimer(); };
+            next.onclick = ()=>{ idx=(idx+1)%slides.length; showSlide(idx); resetTimer(); };
+        }
+        document.getElementById('anuncios-slide').onmouseenter = ()=>{ if(timer) clearInterval(timer); };
+        document.getElementById('anuncios-slide').onmouseleave = ()=>{ resetTimer(); };
+        showSlide(0);
+        resetTimer();
+    }
+    // Inicialização: mostrar perfil completo ao carregar
+    showSection('inicio');
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initSlideShow, 100);
+    });
+    </script>
+</body>
+</html>
